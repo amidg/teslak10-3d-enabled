@@ -19,6 +19,7 @@ Tesla K10 | YES | NO  | YES | NO | YES
 Grid K2 | NO  | YES | NO  | NO | NO
 
 Note: EEVBlog.com and YouTube-channel CraftComputing have developed a hardware mod to convert Tesla K10 to Grid K2 because PCBs are 99.99% identical and require only a minor change to enable the 3D acceleration, however it works only under supported hypervisors with vGPU on Kepler cards: VMware or ESXI.
+https://www.youtube.com/watch?v=8Qm9IbSHkus&t=2s
 
 Additionally, Grid K2 or any other vGPU cannot be used in the same server as other nvidia cards because it requires a host kernel module and only ONE nvidia driver can be installed at the same time, thus I cannot have my Plex Media Server with Quadro K2000 working at the same time as vGPU on the same machine. 
 
