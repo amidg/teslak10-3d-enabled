@@ -97,7 +97,11 @@ vBIOS without fixed checksum will brick your card!
 
 5. Using nvflash with mismatched board IDs flash vBIOS #1 to GPU #1 (index=0) and vBIOS #2 to GPU #2 (index=1) using the follwing command:
 ```
-nvflash.exe --index=0 -6 newBIOS1.rom
+nvflash.exe --index=0 -6 k10-1-k5000.rom
+```
+
+```
+nvflash.exe --index=1 -6 k10-2-k5000.rom
 ```
 nvflash.exe must be run through Windows CMD using Admin rights. Follow nvflash command prompt and then reboot your PC. 
 
