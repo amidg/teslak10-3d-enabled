@@ -43,6 +43,7 @@ If you do some basic googling and "sail the seven seas" and find a Kepler-based 
 My assumption that missing functionality comes from the vBIOS. 
 
 ## 2. How to enable 3D acceleration.
+0. Clone this repository and procced to Step #5 directly. If you want to do everything yourself, start with Step #1.
 1. Download Quadro K5000 vBIOS from the TechPowerUp: https://www.techpowerup.com/vgabios/129867/nvidia-quadrok5000-4096-120817
 2. Open it using Hex editor (e.g. HxD)
 3. Find the following lines:
