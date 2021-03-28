@@ -38,7 +38,7 @@ Proof:
 * Tesla K10 -> Quadro K5000 via softstrap = Vulkan 3D acceleration works, however no DirectX support.
 
 Where does the problem come from?
-If you do some basic googling in order to "sail the sever seas" and find a Kepler-based schematics (e.g. GTX770 that is also GK104 based), you will notice that schematic ROM page contains bunch of GPU die resistor straps that enable/disable certain features. (e.g. video out ports or memory model/amount), so hardware reconfiguration of the Tesla K10 to Quadro K5000 cannot be easily done... and, probably, it is not needed, because they share same amount of the ECC memory and most of the features excluding 3D acceleration. Additionally, they share same driver. 
+If you do some basic googling and "sail the seven seas" and find a Kepler-based schematics (e.g. GTX770 that is also GK104 based), you will notice that schematic ROM page contains bunch of GPU die resistor straps that enable/disable certain features. (e.g. video out ports or memory model/amount), so hardware reconfiguration of the Tesla K10 to Quadro K5000 cannot be easily done... and, probably, it is not needed, because they share same amount of the ECC memory and most of the features excluding 3D acceleration. Additionally, they share same driver. 
 
 My assumption that missing functionality comes from the vBIOS. 
 
