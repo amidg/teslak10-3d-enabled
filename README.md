@@ -120,11 +120,12 @@ Open xxx.conf using your favorite terminal text editor (nano or vi) and enter th
 args: -cpu 'host,hv_time,kvm=off' -device 'vfio-pci,host=0X:00.0,id=hostpci0.0,bus=ich9-pcie-port-1,addr=0x0.0,multifunction=on,romfile=quadrok5000.rom,x-pci-vendor-id=0x10de,x-pci-device-id=0x11BA,x-pci-sub-vendor-id=0x10de,x-pci-sub-device-id=0x0965'
 ```
 
-Note #1: replace 0X:00.0 with your device number in PCI tree. Run lspci -vvv command to find out.
-Note #2: quadrok5000.rom is a real k5000 vbios with no modification. Place it to your Proxomox host directory below:
+* Note #1: replace 0X:00.0 with your device number in PCI tree. Run lspci -vvv command to find out.
+* Note #2: quadrok5000.rom is a real k5000 vbios with no modification. Place it to your Proxomox host directory below:
 ```
 /usr/share/kvm
 ```
+* Note #3: DO NOT add your gpu using PCIe Passthrough via hardware tab in Proxmox. Line above does it automatically for you.
 
 8. Proceed to your VM (Windows or Linux) and install propriatory nvidia driver using either default .exe (Windows) / .run (Linux) or Quadro Experience (Windows only). You must install Quadro K5000 driver from Nvidia's website or through your Linux distro dependencies. Website is preffered.
 
