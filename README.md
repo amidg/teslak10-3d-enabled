@@ -129,6 +129,8 @@ Note #2: quadrok5000.rom is a real k5000 vbios with no modification. Place it to
 8. Proceed to your VM (Windows or Linux) and install propriatory nvidia driver using either default .exe (Windows) / .run (Linux) or Quadro Experience (Windows only). You must install Quadro K5000 driver from Nvidia's website or through your Linux distro dependencies. Website is preffered.
 
 ## 3. Experiment Results
+CONGRATULATIONS! If your drivers installed correctly and after reboot you get Quadro K5000 identified by Windows, you would get a fully working dual K5000 card where each GPU can be passed to a separate VM and now you get two Virtual Machines running fully enabled Quadro K5000 out of a single Tesla K10 card.
+
 Tesla K10 can be identified by the drivers in Quadro Experience or games/benchmarks. E.g. Vulkan in Doom (2016) will indicate it as Tesla K10. MSI afterburner also see it as Tesla K10, however for whatever reason Windows itself identifies device as Quadro K5000. My assumption that games/benchmarks refer to the drivers and they ignor PCIe ID spoofing on the Windows side, thus installation of Quadro K5000 drivers becomes possible on Tesla K10.
 
 However, none of this matters, because K5000 vBIOS on Tesla K10 tells the card to enable 3D acceleration, so card's name does not matter anymore. You can now flex that your Doom runs on the card with no 3D acceleration. Testing results are the following:
