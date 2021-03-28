@@ -26,14 +26,14 @@ Goal: bring 3D acceleration while keeping CUDA and NVENC working under Proxmox P
 
 ## 1. Problem Statement:
 What do we know?
-PCIe ID change using vBIOS SPI mod enables some of the features, but not all of them... 660Ti or some other cards converted to Grid K2 do not have all features of the Grid K2.
-PCIe ID spoofing using purely Proxmox enables some of the features, but again, not all of them... Probably, KVM limitation, probably something else. 3D acceleration cannot be fully enabled by just a trick on the software side.
+1.1. PCIe ID change using vBIOS SPI mod enables some of the features, but not all of them... 660Ti or some other cards converted to Grid K2 do not have all features of the Grid K2.
+1.2. PCIe ID spoofing using purely Proxmox enables some of the features, but again, not all of them... Probably, KVM limitation, probably something else. 3D acceleration cannot be fully enabled by just a trick on the software side.
 
 So... neither hardware mod nor software trick allow to enable 100% of the card functionality. 
 Proof:
-GTX660ti/GTX680 -> Grid K2 via vBIOS SPI mod = no vGPU support.
-GTX680 -> Grid K2 SPI mod + Grid K2 vBIOS = vGPU works
-Tesla K10 -> Quadro K5000 via softstrap = Vulkan 3D acceleration works, however no DirectX support.
+1.1. GTX660ti/GTX680 -> Grid K2 via vBIOS SPI mod = no vGPU support.
+1.2. GTX680 -> Grid K2 SPI mod + Grid K2 vBIOS = vGPU works
+1.3. Tesla K10 -> Quadro K5000 via softstrap = Vulkan 3D acceleration works, however no DirectX support.
 
 Where does the problem come from?
 If you do some basic googling in order to "sail the sever seas" and find a Kepler-based schematics (e.g. GTX770 that is also GK104 based), you will notice that schematic ROM page contains bunch of GPU die resistor straps that enable/disable certain features. (e.g. video out ports or memory model/amount), so hardware reconfiguration of the Tesla K10 to Quadro K5000 cannot be easily done... and, probably, it is not needed, because they share same amount of the ECC memory and most of the features excluding 3D acceleration. Additionally, they share same driver. 
@@ -122,4 +122,16 @@ Note #2: quadrok5000.rom is a real k5000 vbios with no modification. Place it to
 8. Proceed to your VM (Windows or Linux) and install propriatory nvidia driver using either default .exe (Windows) / .run (Linux) or Quadro Experience (Windows only). You must install Quadro K5000 driver from Nvidia's website or through your Linux distro dependencies. Website is preffered.
 
 ## 3. Experiment Results
-What do we know?
+Tesla K10 can be identified by the drivers in Quadro Experience or games/benchmarks. E.g. Vulkan in Doom (2016) will indicate it as Tesla K10. MSI afterburner also see it as Tesla K10, however for whatever reason Windows itself identifies device as Quadro K5000. My assumption that games/benchmarks refer to the drivers and they ignor PCIe ID spoofing on the Windows side, thus installation of Quadro K5000 drivers becomes possible on Tesla K10.
+
+However, none of this matters, because K5000 vBIOS on Tesla K10 tells the card to enable 3D acceleration, so card's name does not matter anymore. You can now flex that your Doom runs on the card with no 3D acceleration. Testing results are the following:
+
+Test | Works?
+------------ | -------------
+DirectX (< 12) | yes 
+Vulkan | yes
+OpenGL | yes
+NVENC | yes (incl. Parsec)
+CUDA | yes (cap. 3.5)
+CAD | yes (tested SW2020)
+Render | yes (tested Blender, SW2020)
