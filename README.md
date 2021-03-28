@@ -33,8 +33,8 @@ What do we know?
 So... neither hardware mod nor software trick allow to enable 100% of the card functionality. 
 Proof:
 * GTX660ti/GTX680 -> Grid K2 via vBIOS SPI mod = no vGPU support.
-* GTX680 -> Grid K2 SPI mod + Grid K2 vBIOS = vGPU works
-* Tesla K10 -> vBIOS SPI + Grid K2 vBIOS = vGPU works (99.99% identical cards)
+* GTX680 -> Grid K2 via SPI mod + Grid K2 vBIOS = vGPU works
+* Tesla K10 -> Grid K2 via vBIOS SPI + Grid K2 vBIOS = vGPU works (99.99% identical cards)
 * Tesla K10 -> Quadro K5000 via softstrap = Vulkan 3D acceleration works, however no DirectX support.
 
 Where does the problem come from?
