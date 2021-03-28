@@ -138,3 +138,9 @@ NVENC | yes (incl. Parsec)
 CUDA | yes (cap. 3.5)
 CAD | yes (tested SW2020)
 Render | yes (tested Blender, SW2020)
+
+...and because this is direct PCIe Passthrough and not a vGPU, you will never be missing:
+* VMware / ESXI vGPU licensing
+* Nvidia vGPU licensing (not present on Kepler cards)
+* lack of NVENC
+* necessity to have a separate server for Tesla K10 (Grid K2), because no need for the host nvidia driver to make this work!
