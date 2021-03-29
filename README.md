@@ -104,6 +104,11 @@ nvflash.exe --index=0 -6 k10-1-k5000.rom
 nvflash.exe --index=1 -6 k10-2-k5000.rom
 ```
 nvflash.exe must be run through Windows CMD using Admin rights. Follow nvflash command prompt and then reboot your PC. 
+WARNING: index=0 and index=1 are true only if Tesla K10 is the only Nvidia GPU in your PC during flashing. Use:
+```
+nvflash.exe --list
+```
+...to verify these indexes to make sure you don't brick other Nvidia GPUs in your system.
 
 6. Install your new Tesla K10 into your Proxmox server.
 Follow this guide to enable VFIO-PCI driver on both Tesla K10 GPUs:
