@@ -156,3 +156,17 @@ Render | yes (tested Blender, SW2020)
 * Nvidia vGPU licensing (not present on Kepler cards)
 * lack of NVENC
 * necessity to have a separate server for Tesla K10 (Grid K2), because no need for the host nvidia driver to make this work!
+
+## 4. Afterword and further testing:
+Initial reddit post: https://www.reddit.com/r/VFIO/comments/mfc1rg/tesla_k10_without_hardware_mod_can_now_work_as/
+
+As stated by other users, reflash step may not be neccessary and yes, it is not. BUT ONLY if your actual GPU HAS 3D acceleration ENABLED. This method is designed to make Nvidia Compute ONLY cards work as their Quadro counterparts.
+* Conversion from Titan X -> Quadro M6000 most likely WILL NOT require any reflash. 
+* Conversion from Tesla M40 (compute only) -> Quadro M6000 most likely WILL require reflash of the modified M6000 vBIOS to make it work. Please, refer to this https://www.reddit.com/r/pcmasterrace/comments/m6evvp/gaming_on_a_tesla_m40_gtx_titan_x_performance_for/
+
+Test | Works?
+------------ | -------------
+Tesla K10 -> dual K5000 SLI | not tested 
+Tesla K10 -> dual GTX680 | not tested
+Titan X Maxwell -> Quadro M6000 | not tested
+Tesla M40 -> Quadro M6000 | not tested
