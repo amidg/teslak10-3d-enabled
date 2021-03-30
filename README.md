@@ -180,3 +180,4 @@ Tesla K40m -> Quadro K6000 | Kepler | GK110B | not tested
 Titan X Maxwell -> Quadro M6000 | Maxwell | GM200 | spoof only (not tested) 
 Tesla M40 -> Quadro M6000 | Maxwell | GM200 | spoof only (not tested)
 
+Other experiments are in "issues" section. Please, refer there. 
