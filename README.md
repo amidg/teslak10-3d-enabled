@@ -177,6 +177,6 @@ Test | Generation | GPU Model | Works?
 Tesla K10 -> dual K5000 SLI | Kepler | GK104 | not tested 
 Tesla K10 -> dual GTX680 | Kepler | GK104 | not tested
 Tesla K40m -> Quadro K6000 | Kepler | GK110B | not tested
-Titan X Maxwell -> Quadro M6000 | Maxwell | GM200 | only spoof needed
-Tesla M40 -> Quadro M6000 | Maxwell | GM200 | only spooof needed (?)
+Titan X Maxwell -> Quadro M6000 | Maxwell | GM200 | spoof only (not tested) 
+Tesla M40 -> Quadro M6000 | Maxwell | GM200 | spoof only (not tested)
 
