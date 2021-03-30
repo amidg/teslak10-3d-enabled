@@ -10,6 +10,14 @@ krutav's method allows to use method called "PCIe ID spoofing" that trick PCIe p
 
 Project goal is to convert Tesla K10 (dual GK104 card) into a dual Quadro K5000 card, where each K5000 is passed to a different VM under Proxmox PCIe Passthrough.
 
+## Requirements:
+This method is initially designed for Tesla K10 only and will work only under Proxmox (should also be compatible with other KVM hypervisors).
+If you want to make this work for other cards:
+1. GPU model must be same for your actual card and targeted card (GK104 on K5000 VS GK104 on Tesla K10).
+2. VRAM configuration must be similar (needs verification)
+
+This method most likely will not help lower-end cards with similar GPU model (e.g. GTX660ti) to work as a fully-fledged high-end card with similar GPU model (e.g. K5000), because vBIOS and drivers will try to work with non-existing CUDA cores, VRAM etc. 
+
 ## 0. GPU Differencies.
 
 GPU Model | CUDA? | 3D Acceleration | NVENC | Video Out? | KVM?
@@ -164,9 +172,11 @@ As stated by other users, reflash step may not be neccessary and yes, it is not.
 * Conversion from Titan X -> Quadro M6000 most likely WILL NOT require any reflash. 
 * Conversion from Tesla M40 (compute only) -> Quadro M6000 most likely WILL require reflash of the modified M6000 vBIOS to make it work. Please, refer to this https://www.reddit.com/r/pcmasterrace/comments/m6evvp/gaming_on_a_tesla_m40_gtx_titan_x_performance_for/
 
-Test | Works?
------------- | -------------
-Tesla K10 -> dual K5000 SLI | not tested 
-Tesla K10 -> dual GTX680 | not tested
-Titan X Maxwell -> Quadro M6000 | not tested
-Tesla M40 -> Quadro M6000 | not tested
+Test | Generation | GPU Model | Works?
+------------ | ------------- | ------------- | -------------
+Tesla K10 -> dual K5000 SLI | Kepler | GK104 | not tested 
+Tesla K10 -> dual GTX680 | Kepler | GK104 | not tested
+Tesla K40m -> Quadro K6000 | Kepler | GK110B | not tested
+Titan X Maxwell -> Quadro M6000 | Maxwell | GM200 | only spoof needed
+Tesla M40 -> Quadro M6000 | Maxwell | GM200 | only spooof needed (?)
+
