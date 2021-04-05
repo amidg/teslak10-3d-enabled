@@ -183,4 +183,4 @@ Tesla M40 -> Quadro M6000 | Maxwell | GM200 | spoof only (not tested)
 Other experiments are in "issues" section. Please, refer there. 
 
 ## 5. WARNINGS:
-DO NOT INSTALL NVIDIA RDP OpenGL FIX FOR GeForce cards. It destroys your Tesla K10 fix. 
+DO NOT INSTALL NVIDIA RDP OpenGL FIX FOR GeForce cards. It destroys your Tesla K10 fix. For some reason this Nvidia Fix completely corrupts vBIOS on the actual GPU. nvflash will not help to restore it, thus manual restoration required using SPI BIOS flashing tool for motherboards. I use CH341A based tool for 25-series SPI EEPROMs. 
